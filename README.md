@@ -1,46 +1,12 @@
 # 个人主页
 
-这是一个可以部署在GitHub Pages上的个人主页模板。它具有响应式设计，并包含多个部分来展示你的个人信息、项目和技能。
+我的个人主页
 
 ## 预览
 
-在线预览：[https://你的用户名.github.io](https://你的用户名.github.io)
+在线预览：[https://Konako39.github.io/My.github.io](https://Konako39.github.io/My.github.io)
 
-## 功能
-
-- 响应式设计，适配所有设备屏幕
-- 干净现代的界面
-- 平滑滚动效果
-- 项目展示部分
-- 技能展示
-- 联系表单
-
-## 如何使用
-
-1. Fork 这个仓库到你的GitHub账户
-2. 克隆仓库到本地
-   ```
-   git clone https://github.com/你的用户名/你的用户名.github.io.git
-   ```
-3. 编辑 `index.html` 文件，替换示例内容为你的个人信息
-4. 根据需要修改 `css/styles.css` 中的样式
-5. 将你的项目图片放在 `images` 文件夹中 (需要创建)
-6. 提交并推送更改到GitHub
-   ```
-   git add .
-   git commit -m "个性化我的个人主页"
-   git push origin main
-   ```
-7. 启用GitHub Pages:
-   - 访问你的仓库设置
-   - 向下滚动到GitHub Pages部分
-   - 选择 `main` 分支作为源
-   - 点击保存
-   - 等待几分钟，你的站点将被部署
-
-## 自定义
-
-### 更改颜色方案
+## 更改颜色方案
 
 编辑 `css/styles.css` 文件中的颜色变量:
 
@@ -81,18 +47,4 @@
 
 ## 部署到GitHub Pages
 
-要将此网站部署到GitHub Pages，你需要:
-
-1. 将仓库命名为 `你的用户名.github.io`（这将自动启用GitHub Pages）
-2. 或者，将其命名为任何其他名称，然后在仓库设置中启用GitHub Pages
-
-## 许可
-
-MIT
-
-## 联系
-
-如有任何问题或建议，请通过以下方式联系：
-
-- 邮箱: your.email@example.com
-- GitHub: [你的GitHub名](https://github.com/你的用户名) 
+将仓库命名为 `你的用户名.github.io`（这将自动启用GitHub Pages）

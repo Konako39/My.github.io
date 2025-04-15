@@ -2,12 +2,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 导航栏滚动效果
     const nav = document.querySelector('nav');
-    const navHeight = nav.offsetHeight;
+    const navHeight = nav ? nav.offsetHeight : 0;
     
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
+        if (nav && window.scrollY > 100) {
             nav.classList.add('scrolled');
-        } else {
+        } else if (nav) {
             nav.classList.remove('scrolled');
         }
     });
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // 项目卡片淡入效果
+    // 项目卡片淡入效果 - 仅用于旧版页面
     const projectCards = document.querySelectorAll('.project-card');
     
     // 检查元素是否在视口中
@@ -81,9 +81,11 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', fadeInElements);
     window.addEventListener('scroll', fadeInElements);
     
-    // 添加一些CSS动画
-    const style = document.createElement('style');
-    style.innerHTML = `
+    // 创建CSS样式
+    const styleEl = document.createElement('style');
+    
+    // 添加动画CSS
+    let cssRules = `
         .fade-in {
             animation: fadeIn 0.8s ease forwards;
         }
@@ -104,7 +106,36 @@ document.addEventListener('DOMContentLoaded', function() {
             background-color: rgba(255, 255, 255, 0.98);
         }
     `;
-    document.head.appendChild(style);
+    
+    // 图片加载动画效果 - 用于新版画廊
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    if (galleryItems.length > 0) {
+        galleryItems.forEach((item, index) => {
+            // 添加延迟加载动画
+            setTimeout(() => {
+                item.classList.add('fade-in');
+            }, index * 100);
+        });
+        
+        // 添加画廊项目的CSS
+        cssRules += `
+            .gallery-item {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+            
+            .gallery-item.fade-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        `;
+    }
+    
+    // 应用所有CSS规则
+    styleEl.innerHTML = cssRules;
+    document.head.appendChild(styleEl);
     
     // 初始设置，让项目卡片开始是隐藏的
     projectCards.forEach(card => {
@@ -113,4 +144,35 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 立即检查一次
     fadeInElements();
+    
+    // 鼠标悬停效果增强
+    galleryItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const overlay = this.querySelector('.overlay');
+            if (overlay) {
+                overlay.style.opacity = '1';
+            }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            const overlay = this.querySelector('.overlay');
+            if (overlay) {
+                overlay.style.opacity = '0';
+            }
+        });
+    });
+    
+    // 当前页面高亮
+    const currentPath = window.location.pathname;
+    const filename = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    
+    const languageLinks = document.querySelectorAll('.language-selector a');
+    languageLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (filename === href || (filename === '' && href === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 }); 
