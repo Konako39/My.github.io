@@ -1,534 +1,253 @@
-/* 基本样式重置 */
+/* ======================================
+   基本样式重置 - 确保所有浏览器有一致的起点
+   ====================================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;         /* 移除所有元素的外边距 */
+    padding: 0;        /* 移除所有元素的内边距 */
+    box-sizing: border-box; /* 使元素的宽度包含padding和border */
 }
 
+/* ======================================
+   全局样式设置
+   ====================================== */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* 设置全局字体 */
+    line-height: 1.6;  /* 设置行高为字体大小的1.6倍 */
+    color: #333;       /* 设置文字颜色为深灰色 */
+    background-color: #ffffff; /* 设置背景颜色为白色 */
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
+/* 链接样式 */
 a {
-    color: inherit;
-    text-decoration: none;
+    color: inherit;    /* 链接颜色继承自父元素 */
+    text-decoration: none; /* 移除下划线 */
 }
 
+/* 列表样式 */
 ul {
-    list-style: none;
+    list-style: none;  /* 移除列表项的默认标记 */
 }
 
+/* 图片样式 */
 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    max-width: 100%;   /* 图片最大宽度为容器宽度 */
+    height: auto;      /* 保持宽高比 */
+    display: block;    /* 使图片为块级元素 */
 }
 
-/* 语言选择器 */
+/* ======================================
+   语言选择器样式
+   ====================================== */
 .language-selector {
-    display: flex;
-    justify-content: flex-start;
-    padding: 15px 30px;
-    background-color: #4a90e2;
+    display: flex;     /* 使用弹性布局 */
+    justify-content: flex-start; /* 内容左对齐 */
+    padding: 15px 30px; /* 内边距：上下15px，左右30px */
+    background-color: #4a90e2; /* 设置背景为蓝色 */
 }
 
 .language-selector a {
-    color: white;
-    margin-right: 30px;
-    font-size: 1.2rem;
-    font-weight: 500;
-    position: relative;
-    padding: 5px 0;
+    color: white;      /* 文字颜色为白色 */
+    margin-right: 30px; /* 右侧外边距30px */
+    font-size: 1.2rem; /* 字体大小为根元素字体大小的1.2倍 */
+    font-weight: 500;  /* 字体粗细：中等粗 */
+    position: relative; /* 为下划线设置相对定位 */
+    padding: 5px 0;    /* 内边距：上下5px，左右0 */
 }
 
+/* 当前选中语言的下划线 */
 .language-selector a.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: white;
+    content: '';       /* 创建伪元素内容 */
+    position: absolute; /* 绝对定位 */
+    bottom: 0;         /* 位于底部 */
+    left: 0;           /* 左侧对齐 */
+    width: 100%;       /* 宽度100% */
+    height: 2px;       /* 高度2px */
+    background-color: white; /* 设置下划线颜色为白色 */
 }
 
-/* 横幅样式 */
+/* ======================================
+   横幅样式 - 标题区域
+   ====================================== */
 .banner {
-    background-color: #40e0d0; /* 青绿色背景 */
-    color: white;
-    text-align: center;
-    padding: 100px 0;
-    background-image: url('https://via.placeholder.com/1920x500/40e0d0/FFFFFF'); /* 可替换为实际背景图 */
-    background-size: cover;
-    background-position: center;
+    background-color: #40e0d0; /* 设置背景为青绿色 */
+    color: white;      /* 文字颜色为白色 */
+    text-align: center; /* 文字居中 */
+    padding: 150px 0;  /* 内边距：上下150px，左右0 */
+    background-image: url('https://via.placeholder.com/1920x500/40e0d0/FFFFFF'); /* 背景图片 */
+    background-size: cover; /* 背景图覆盖整个区域 */
+    background-position: center; /* 背景图居中 */
 }
 
 .banner h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-size: 3.5rem; /* 标题文字大小 */
+    font-weight: 700;  /* 字体粗细：加粗 */
+    letter-spacing: 2px; /* 字符间距 */
 }
 
-/* 网格画廊 */
+/* ======================================
+   网格画廊 - 作品展示区
+   ====================================== */
 .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    grid-gap: 1px;
-    background-color: #999; /* 网格线颜色 */
+    display: grid;     /* 使用网格布局 */
+    grid-template-columns: repeat(12, 1fr); /* 12等分网格 */
+    grid-auto-rows: minmax(100px, auto); /* 行高最小100px，可自动增长 */
+    grid-gap: 1px;     /* 网格间隙为1px */
+    background-color: #ffffff; /* 网格线颜色为白色 */
 }
 
+/* 单个项目样式 */
 .gallery-item {
-    position: relative;
-    overflow: hidden;
-    background-color: #999; /* 灰色背景 */
-    width: 100%;
-    height: 100%;
+    position: relative; /* 相对定位 */
+    overflow: hidden;  /* 溢出隐藏 */
+    background-color: #ffffff; /* 背景为白色 */
+    width: 100%;       /* 宽度100% */
+    height: 100%;      /* 高度100% */
+    transition: transform 0.3s ease; /* 变换动画：持续0.3秒，平滑过渡 */
+    padding: 0px;      /* 内边距为0 */
 }
 
+/* 鼠标悬停时项目放大效果 */
+.gallery-item:hover {
+    transform: scale(1.02); /* 整体放大1.02倍 */
+}
+
+/* 项目内图片样式 */
 .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    width: 100%;       /* 宽度100% */
+    height: 100%;      /* 高度100% */
+    object-fit: cover; /* 图片覆盖整个区域，保持宽高比 */
+    transition: transform 0.3s ease; /* 变换动画 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
 }
 
+/* 鼠标悬停时图片放大效果 */
 .gallery-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* 图片放大1.05倍 */
 }
 
-.overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 15px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .overlay {
-    opacity: 1;
-}
-
-/* 项目尺寸定义 */
+/* ======================================
+   项目尺寸定义 - 控制网格中每个项目占据的空间
+   ====================================== */
+/* 大尺寸项目 */
 .large {
-    grid-column: span 7;
-    grid-row: span 4;
+    grid-column: span 7; /* 横跨7个网格单元 */
+    grid-row: span 4;   /* 横跨4个网格单元 */
 }
 
+/* 中等尺寸项目 */
 .medium {
-    grid-column: span 5;
-    grid-row: span 4;
+    grid-column: span 5; /* 横跨5个网格单元 */
+    grid-row: span 4;   /* 横跨4个网格单元 */
 }
 
+/* 小尺寸项目 */
 .small {
-    grid-column: span 4;
-    grid-row: span 2;
+    grid-column: span 4; /* 横跨4个网格单元 */
+    grid-row: span 2;   /* 横跨2个网格单元 */
 }
 
+/* 中等高度项目 */
 .medium-tall {
-    grid-column: span 3;
-    grid-row: span 6;
+    grid-column: span 3; /* 横跨3个网格单元 */
+    grid-row: span 6;   /* 横跨6个网格单元 */
 }
 
-/* 头部样式 */
-header {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: white;
-    padding: 100px 0 60px;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-/* 导航栏样式 */
-nav {
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-}
-
-nav li {
-    margin: 0 15px;
-}
-
-nav a {
-    display: block;
-    padding: 20px 10px;
-    color: #333;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #3498db;
-    text-decoration: none;
-}
-
-/* 部分通用样式 */
-.section {
-    padding: 80px 0;
-}
-
-.section h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    color: #2c3e50;
-    position: relative;
-}
-
-.section h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: #3498db;
-    margin: 15px auto 0;
-}
-
-/* 关于我部分样式 */
-.about-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 40px;
-}
-
-.profile-img {
-    flex: 1;
-    min-width: 300px;
-    text-align: center;
-}
-
-.profile-img img {
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.about-text {
-    flex: 2;
-    min-width: 300px;
-}
-
-.about-text p {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-}
-
-/* 项目展示部分样式 */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.project-card h3 {
-    padding: 20px 20px 10px;
-    font-size: 1.4rem;
-    color: #2c3e50;
-}
-
-.project-card p {
-    padding: 0 20px 20px;
-    color: #666;
-}
-
-.project-links {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px 20px;
-}
-
-.project-links a {
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-/* 技能部分样式 */
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.skill-category {
-    flex: 1;
-    min-width: 250px;
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.skill-category h3 {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-    color: #2c3e50;
-    text-align: center;
-}
-
-.skill-list li {
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    background-color: #f1f5f9;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.skill-list li:hover {
-    background-color: #e9f0f7;
-}
-
-/* 联系方式部分样式 */
-.contact-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.contact-info {
-    flex: 1;
-    min-width: 300px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.contact-item i {
-    font-size: 1.5rem;
-    width: 40px;
-    color: #3498db;
-}
-
-form {
-    flex: 1;
-    min-width: 300px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-input:focus, textarea:focus {
-    outline: none;
-    border-color: #3498db;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #3498db;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #2980b9;
-}
-
-/* 页脚样式 */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 1px;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.social-links a {
-    color: white;
-    font-size: 1.5rem;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: #40e0d0;
-}
-
-/* 响应式设计 */
+/* ======================================
+   媒体查询 - 响应式设计，适配不同屏幕大小
+   ====================================== */
+/* 宽度小于1200px的屏幕 */
 @media (max-width: 1200px) {
     .large {
-        grid-column: span 6;
+        grid-column: span 6; /* 调整为横跨6个网格单元 */
     }
     
     .medium {
-        grid-column: span 6;
+        grid-column: span 6; /* 调整为横跨6个网格单元 */
     }
     
     .small {
-        grid-column: span 6;
+        grid-column: span 6; /* 调整为横跨6个网格单元 */
     }
     
     .medium-tall {
-        grid-column: span 6;
-        grid-row: span 4;
-    }
-}
-
-@media (max-width: 768px) {
-    .gallery-container {
-        grid-template-columns: 1fr;
+        grid-column: span 6; /* 调整为横跨6个网格单元 */
+        grid-row: span 4;    /* 调整为横跨4个网格单元 */
     }
     
-    .gallery-item {
-        grid-column: 1 / -1;
-        grid-row: span 1;
-        height: 300px;
-    }
-    
-    .large, .medium, .small, .medium-tall {
-        grid-column: 1 / -1;
+    .banner {
+        padding: 120px 0;    /* 减小内边距 */
     }
     
     .banner h1 {
-        font-size: 2rem;
-    }
-    
-    header {
-        padding: 60px 0 40px;
-    }
-    
-    header h1 {
-        font-size: 2.2rem;
-    }
-    
-    .section {
-        padding: 50px 0;
-    }
-    
-    .section h2 {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-    }
-    
-    nav li {
-        margin: 0 10px;
-    }
-    
-    nav a {
-        padding: 15px 8px;
-    }
-    
-    footer .container {
-        flex-direction: column;
-        gap: 20px;
+        font-size: 3rem;     /* 减小字体大小 */
     }
 }
 
-/* 项目详情页面的基本样式 */
+/* 宽度小于768px的屏幕（移动设备） */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: 1fr; /* 改为单列布局 */
+    }
+    
+    .gallery-item {
+        grid-column: 1 / -1;  /* 占据所有列 */
+        grid-row: span 1;     /* 仅占一行 */
+        height: 300px;        /* 固定高度 */
+    }
+    
+    .large, .medium, .small, .medium-tall {
+        grid-column: 1 / -1;  /* 所有项目都占据全宽 */
+    }
+    
+    .banner {
+        padding: 80px 0;      /* 进一步减小内边距 */
+    }
+    
+    .banner h1 {
+        font-size: 2.5rem;    /* 进一步减小字体大小 */
+    }
+}
+
+/* ======================================
+   项目详情页面样式
+   ====================================== */
 .project-detail {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
+    max-width: 1200px;  /* 最大宽度 */
+    margin: 0 auto;     /* 居中 */
+    padding: 40px 20px; /* 内边距 */
 }
 
 .project-detail h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 2.5rem;        /* 标题大小 */
+    margin-bottom: 20px;      /* 下方外边距 */
+    color: #333;              /* 标题颜色 */
 }
 
 .project-detail .description {
-    margin-bottom: 30px;
-    font-size: 1.1rem;
-    line-height: 1.8;
+    margin-bottom: 30px;      /* 下方外边距 */
+    font-size: 1.1rem;        /* 字体大小 */
+    line-height: 1.8;         /* 行高 */
 }
 
 .project-detail img {
-    margin-bottom: 30px;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;      /* 下方外边距 */
+    border-radius: 5px;       /* 圆角 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* 阴影效果 */
 }
 
-/* 返回按钮 */
+/* ======================================
+   返回按钮样式
+   ====================================== */
 .back-button {
-    display: inline-block;
-    background-color: #40e0d0;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-bottom: 30px;
-    transition: background-color 0.3s;
+    display: inline-block;    /* 行内块元素 */
+    background-color: #40e0d0; /* 背景色：青绿色 */
+    color: white;             /* 文字颜色：白色 */
+    padding: 10px 20px;       /* 内边距 */
+    border-radius: 5px;       /* 圆角 */
+    margin-bottom: 30px;      /* 下方外边距 */
+    transition: background-color 0.3s; /* 背景色变化动画 */
 }
 
 .back-button:hover {
-    background-color: #3bc1b4;
+    background-color: #3bc1b4; /* 悬停时背景色变深 */
 } 
